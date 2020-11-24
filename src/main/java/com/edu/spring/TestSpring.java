@@ -10,6 +10,9 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.edu.spring.entity.Book;
 
+/**
+ * 主测试类
+ */
 public class TestSpring {
 
     private ApplicationContext context1;
