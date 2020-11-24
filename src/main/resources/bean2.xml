@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userService" class="com.edu.spring.service.UserService">
+        <!-- 给类中的dao属性注入Dao对象 -->
+        <property name="dao" ref="userDao"/>
+    </bean>
+
+    <bean id="userDao" class="com.edu.spring.dao.UserDaoImpl"/>
+
+
+    <bean id="emp" class="com.edu.spring.bean.Emp">
+        <property name="EName" value="小红"/>
+        <property name="gender" value="男"/>
+        <!--嵌套使用-->
+        <property name="dept" >
+            <bean id="dept" class="com.edu.spring.bean.Dept">
+                <property name="DName" value="研发部"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="emp2" class="com.edu.spring.bean.Emp">
+        <property name="EName" value="小红"/>
+        <property name="gender" value="男"/>
+        <!--级联赋值-->
+        <property name="dept" ref="dept2"></property>
+    </bean>
+
+    <bean id="dept2" class="com.edu.spring.bean.Dept">
+        <property name="DName" value="安保部"/>
+    </bean>
+
+    <bean id="dept3" class="com.edu.spring.bean.Dept"/>
+
+    <bean id="emp3" class="com.edu.spring.bean.Emp">
+        <property name="EName" value="小红"/>
+        <property name="gender" value="男"/>
+        <!--级联赋值-->
+        <property name="dept" ref="dept3"></property>
+        <property name="dept.DName" value="科技部"></property>
+    </bean>
+
+</beans>
