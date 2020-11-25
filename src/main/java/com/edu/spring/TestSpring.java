@@ -1,6 +1,7 @@
 package com.edu.spring;
 
 import com.edu.spring.bean.Emp;
+import com.edu.spring.collectiontype.Stu;
 import com.edu.spring.entity.Order;
 import com.edu.spring.entity.User;
 import com.edu.spring.service.UserService;
@@ -17,12 +18,20 @@ public class TestSpring {
 
     private ApplicationContext context1;
     private ApplicationContext context2;
+    private ApplicationContext context3;
 
     @Before
     public void before (){
         // 加载Spring的配置文件
         context1 = new ClassPathXmlApplicationContext("classpath:bean1.xml");
         context2 = new ClassPathXmlApplicationContext("classpath:bean2.xml");
+        context3 = new ClassPathXmlApplicationContext("classpath:bean3.xml");
+    }
+
+    @Test
+    public void testStu(){
+        Stu stu = (Stu) context3.getBean("stu");
+        System.out.println(stu.toString());
     }
 
     @Test
