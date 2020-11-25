@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.springframework.context.ApplicationContext;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.edu.spring.entity.Book;
+import com.edu.spring.collectiontype.Book;
 
 /**
  * 主测试类
@@ -26,6 +26,13 @@ public class TestSpring {
         context1 = new ClassPathXmlApplicationContext("classpath:bean1.xml");
         context2 = new ClassPathXmlApplicationContext("classpath:bean2.xml");
         context3 = new ClassPathXmlApplicationContext("classpath:bean3.xml");
+    }
+
+    @Test
+    public void testBook2(){
+        Book book1 = context3.getBean("book", Book.class);
+        Book book2 = context3.getBean("book", Book.class);
+        System.out.println(book1==book2);
     }
 
     @Test

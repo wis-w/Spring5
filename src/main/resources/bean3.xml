@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--提取List集合属性注入-->
+    <util:list id="bookList">
+        <value>西游记</value>
+        <value>红楼梦</value>
+        <value>水浒传</value>
+        <value>三国志</value>
+    </util:list>
+    <bean id="book" class="com.edu.spring.collectiontype.Book" scope="prototype">
+        <property name="list" ref="bookList"></property>
+    </bean>
 
     <bean id="stu" class="com.edu.spring.collectiontype.Stu">
         <!--数组结构注入-->
