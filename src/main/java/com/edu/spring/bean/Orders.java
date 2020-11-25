@@ -7,7 +7,7 @@ public class Orders {
     private String oName;
 
     public static void main(String[] args) {
-        System.out.println("setr");
+        System.out.println("setr ");
 
     }
 }
