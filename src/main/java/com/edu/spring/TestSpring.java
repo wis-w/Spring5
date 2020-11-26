@@ -1,6 +1,7 @@
 package com.edu.spring;
 
 import com.edu.spring.bean.Emp;
+import com.edu.spring.bean.Orders;
 import com.edu.spring.collectiontype.Stu;
 import com.edu.spring.entity.Order;
 import com.edu.spring.entity.User;
@@ -19,6 +20,7 @@ public class TestSpring {
     private ApplicationContext context1;
     private ApplicationContext context2;
     private ApplicationContext context3;
+    private ApplicationContext context4;
 
     @Before
     public void before (){
@@ -26,6 +28,14 @@ public class TestSpring {
         context1 = new ClassPathXmlApplicationContext("classpath:bean1.xml");
         context2 = new ClassPathXmlApplicationContext("classpath:bean2.xml");
         context3 = new ClassPathXmlApplicationContext("classpath:bean3.xml");
+        context4 = new ClassPathXmlApplicationContext("classpath:bean4.xml");
+    }
+
+    @Test
+    public void testOrder(){
+        Orders orders = context4.getBean("orders", Orders.class);
+        System.out.println(orders.toString());
+        System.out.println("第四步,获取创建的对象");
     }
 
     @Test
