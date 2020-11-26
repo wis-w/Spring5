@@ -21,6 +21,7 @@ public class TestSpring {
     private ApplicationContext context2;
     private ApplicationContext context3;
     private ApplicationContext context4;
+    private ApplicationContext context5;
 
     @Before
     public void before (){
@@ -28,7 +29,13 @@ public class TestSpring {
         context1 = new ClassPathXmlApplicationContext("classpath:bean1.xml");
         context2 = new ClassPathXmlApplicationContext("classpath:bean2.xml");
         context3 = new ClassPathXmlApplicationContext("classpath:bean3.xml");
-        context4 = new ClassPathXmlApplicationContext("classpath:bean4.xml");
+        //context4 = new ClassPathXmlApplicationContext("classpath:bean4.xml");
+        context5 = new ClassPathXmlApplicationContext("classpath:bean5.xml");
+    }
+
+    @Test
+    public void empAutoWire(){
+        System.out.println(context5.getBean("emp", com.edu.spring.autowire.Emp.class).toString());
     }
 
     @Test
