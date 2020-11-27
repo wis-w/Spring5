@@ -34,6 +34,13 @@ public class TestSpring {
     }
 
     @Test
+    public void testService(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:bean7.xml");
+        UserService userService = context.getBean("userService", UserService.class);
+        userService.add2();
+    }
+
+    @Test
     public void empAutoWire(){
         System.out.println(context5.getBean("emp", com.edu.spring.autowire.Emp.class).toString());
     }
