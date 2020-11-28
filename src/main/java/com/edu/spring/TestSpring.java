@@ -7,6 +7,7 @@ import com.edu.spring.entity.Order;
 import com.edu.spring.entity.User;
 import com.edu.spring.service.UserService;
 import org.junit.Before;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -31,6 +32,13 @@ public class TestSpring {
         context3 = new ClassPathXmlApplicationContext("classpath:bean3.xml");
         //context4 = new ClassPathXmlApplicationContext("classpath:bean4.xml");
         context5 = new ClassPathXmlApplicationContext("classpath:bean5.xml");
+    }
+
+    @Test
+    public void addService(){
+        ApplicationContext context7 = new ClassPathXmlApplicationContext("classpath:bean7.xml");
+        UserService userService = context7.getBean("userService", UserService.class);
+        userService.add3();
     }
 
     @Test
