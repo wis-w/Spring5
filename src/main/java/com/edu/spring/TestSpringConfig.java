@@ -3,6 +3,7 @@ package com.edu.spring;
 import com.edu.spring.bean.Emp;
 import com.edu.spring.bean.Orders;
 import com.edu.spring.collectiontype.Stu;
+import com.edu.spring.config.SpringConfig;
 import com.edu.spring.entity.Order;
 import com.edu.spring.entity.User;
 import com.edu.spring.service.UserService;
@@ -10,13 +11,14 @@ import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.edu.spring.collectiontype.Book;
 
 /**
  * 主测试类
  */
-public class TestSpring {
+public class TestSpringConfig {
 
     private ApplicationContext context1;
     private ApplicationContext context2;
@@ -30,8 +32,14 @@ public class TestSpring {
         context1 = new ClassPathXmlApplicationContext("classpath:bean1.xml");
         context2 = new ClassPathXmlApplicationContext("classpath:bean2.xml");
         context3 = new ClassPathXmlApplicationContext("classpath:bean3.xml");
-        //context4 = new ClassPathXmlApplicationContext("classpath:bean4.xml");
         context5 = new ClassPathXmlApplicationContext("classpath:bean5.xml");
+    }
+
+    @Test
+    public void addService2(){
+        ApplicationContext context7 = new AnnotationConfigApplicationContext(SpringConfig.class);
+        UserService userService = context7.getBean("userService", UserService.class);
+        userService.add3();
     }
 
     @Test
