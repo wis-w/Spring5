@@ -1,19 +1,18 @@
-package com.edu.spring;
+package com.edu.spring.test;
 
 import com.edu.spring.bean.Emp;
 import com.edu.spring.bean.Orders;
+import com.edu.spring.collectiontype.Book;
 import com.edu.spring.collectiontype.Stu;
 import com.edu.spring.config.SpringConfig;
 import com.edu.spring.entity.Order;
 import com.edu.spring.entity.User;
 import com.edu.spring.service.UserService;
 import org.junit.Before;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.edu.spring.collectiontype.Book;
 
 /**
  * 主测试类
