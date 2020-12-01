@@ -9,7 +9,7 @@ public class TxTest {
 
     @Test
     public void bank(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:tx.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:tx2.xml");
         UserService userService = context.getBean("userService", UserService.class);
         userService.countMoney();
     }

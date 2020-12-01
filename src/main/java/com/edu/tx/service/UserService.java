@@ -10,7 +10,6 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    @Transactional// 事务注解
     public void countMoney(){
         userDao.reduceMoney();// 账户减少
         int a = 1 / 0;// 模拟异常
